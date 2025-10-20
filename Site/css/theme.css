@@ -44,7 +44,9 @@ body{
 .menu{display:flex;flex-direction:column;gap:12px}
 .menu a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;color:#cfcfcf;text-decoration:none;font-size:0.95rem}
 .menu a.selected{background:var(--accent);color:#fff}
-.menu a .icon{width:var(--menu-icon-size);height:var(--menu-icon-size);display:inline-block;background:rgba(255,255,255,0.03);border-radius:6px}
+.menu a .icon{width:var(--menu-icon-size);height:var(--menu-icon-size);display:inline-flex;align-items:center;justify-content:center;background:transparent;border-radius:0}
+/* SVG asset used in menu items */
+/* menu-asset removed */
 
 /* Buttons / inputs / cards */
 .btn{height:var(--btn-height);border-radius:12px;border:0;font-weight:600;background:linear-gradient(180deg,var(--accent), #b93131);color:white;cursor:pointer;box-shadow: 0 6px 18px rgba(225,59,59,0.28);align-self:center;padding:0 18px;min-width:120px}
@@ -75,6 +77,12 @@ th,td{padding:14px;text-align:left}
 th{color:#a9a9a9;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.03)}
 tr{border-bottom:1px solid rgba(255,255,255,0.02)}
 
+/* Make table area scrollable with sticky headers */
+.table-wrap{max-height:420px;overflow:auto}
+.table-wrap table{width:100%;border-collapse:collapse}
+.table-wrap thead th{position:sticky;top:0;background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.12));z-index:2}
+.table-wrap tbody tr{transition:opacity .15s}
+
 /* Responsive tweaks */
 @media(max-width:480px){
   .card{padding:14px}
@@ -91,6 +99,9 @@ tr{border-bottom:1px solid rgba(255,255,255,0.02)}
 .mt-8{margin-top:8px}
 .mt-12{margin-top:12px}
 .kpi{display:flex;justify-content:space-between;align-items:center}
+
+/* forgotten password link styling */
+.forgot{color:#ffffff;text-decoration:none;font-weight:600;font-size:0.85rem;opacity:0.9}
 
 /* chart placeholder helpers */
 .chart-placeholder{height:140px;background:linear-gradient(180deg, rgba(225,59,59,0.12), transparent);border-radius:8px;margin-top:12px;position:relative}

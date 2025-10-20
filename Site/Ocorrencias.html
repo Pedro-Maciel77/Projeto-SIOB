@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Painel Bombeiros — Ocorrências</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    .app{display:flex}
+    .sidebar{width:220px;padding:20px}
+    .main{flex:1;padding:36px}
+    h1{font-size:22px;margin-bottom:18px}
+    .filters{display:flex;gap:18px;margin-bottom:18px}
+    .filter{background:linear-gradient(180deg,#262425,#1f1d20);padding:12px;border-radius:12px;color:#bfbfbf;min-width:160px}
+    .search{margin:16px 0}
+    .search input{width:100%;padding:14px;border-radius:12px;background:linear-gradient(180deg,#262425,#1f1d20);border:0;color:#cfcfcf}
+    .table-wrap{background:linear-gradient(180deg,#1f1d1f,#161516);padding:18px;border-radius:12px}
+    .status{padding:6px 10px;border-radius:8px;background:#2a2a2a;color:#cfcfcf;display:inline-block}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo-sm">
+        <img src="img/image.png" alt="logo" />
+        <strong>Painel Bombeiros</strong>
+      </div>
+
+      <nav class="menu">
+        <a href="Ocorrencias.html"><span class="icon"></span> Ocorrências</a>
+        <a href="Relatorios.html"><span class="icon"></span> Relatórios</a>
+        <a href="#"><span class="icon"></span> Usuários</a>
+        <a href="#"><span class="icon"></span> Auditoria</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar"><a href="Perfil.html" class="user-btn"><div class="avatar-sm">C</div><div>Cauã Nunes</div></a></div>
+
+      <div class="filters">
+        <div class="filter">Periodo<br><small class="muted">Selecionar...</small></div>
+        <div class="filter">Tipo<br><small class="muted">Incendio</small></div>
+        <div class="filter">Regioes<br><small class="muted">Selecionar...</small></div>
+        <div class="filter">Status<br><small class="muted">Aberta</small></div>
+      </div>
+
+  <div class="search"><input placeholder="Buscar ocorrência"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>TIPO</th><th>DATA</th><th>LOCAL</th><th>STATUS</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0</td><td>incendio</td><td>21/10/2025</td><td>Dois Unidos</td><td><span class="status">Aberta</span></td></tr>
+            <tr><td>1</td><td>Resgate</td><td>08/12/2025</td><td>Afogados</td><td><span class="status">Fechada</span></td></tr>
+            <tr><td>2</td><td>Resgate</td><td>12/06/2023</td><td>Alto Bondade</td><td><span class="status">Fechada</span></td></tr>
+            <tr><td>3</td><td>Acidente</td><td>21/10/2025</td><td>Dois Unidos</td><td><span class="status">Aberta</span></td></tr>
+            <tr><td>4</td><td>Acidente</td><td>21/10/2025</td><td>Joao de Barros</td><td><span class="status">Aberta</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+  <script>
+    (function(){
+      const links = document.querySelectorAll('.menu a');
+      const path = location.pathname.split('/').pop();
+      links.forEach(a=>{ a.classList.remove('selected'); if(a.getAttribute('href')===path) a.classList.add('selected') });
+    })();
+  </script>
+</body>
+</html>

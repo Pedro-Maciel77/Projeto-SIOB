@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Painel Bombeiros — Relatórios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    .app{display:flex;gap:28px}
+    .main{flex:1;padding:36px}
+    h1{margin:6px 0 26px 0;font-size:22px}
+    .top-cards{display:flex;gap:18px;margin-bottom:18px}
+    .card{padding:18px;border-radius:12px;flex:0 0 140px}
+    .card small{display:block;color:var(--muted);font-size:12px}
+    .card .num{font-weight:700;font-size:18px;margin-top:10px}
+    .filters{display:flex;gap:12px;margin:18px 0 24px}
+    .filter{background:var(--panel-2);padding:12px;border-radius:12px;color:#bfbfbf}
+    .charts{display:flex;gap:18px}
+    .panel{padding:18px;border-radius:12px;flex:1;min-height:240px}
+    .legend{display:flex;gap:12px;align-items:center;margin-top:14px}
+    .legend .item{display:flex;align-items:center;gap:8px}
+    .dot{width:12px;height:12px;border-radius:50%}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo-sm">
+        <img src="img/image.png" alt="logo" />
+        <strong>Painel Bombeiros</strong>
+      </div>
+
+      <nav class="menu">
+        <a href="Ocorrencias.html"><span class="icon"></span> Ocorrências</a>
+        <a href="Relatorios.html" class="selected"><span class="icon"></span> Relatórios</a>
+        <a href="#"><span class="icon"></span> Usuários</a>
+        <a href="#"><span class="icon"></span> Auditoria</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+  <div class="topbar"><a href="Perfil.html" class="user-btn"><div class="avatar-sm">C</div><div>Cauã Nunes</div></a></div>
+  <h1>Relatório</h1>
+
+      <div class="top-cards">
+        <div class="card"><small>Total Ocorrências</small><div class="num">120</div></div>
+        <div class="card"><small>Finalizados</small><div class="num">70</div></div>
+        <div class="card"><small>Abertos</small><div class="num">30</div></div>
+        <div class="card"><small>Em Andamento</small><div class="num">20</div></div>
+      </div>
+
+      <div class="filters">
+  <div class="filter">Periodo <div class="muted">Selecionar...</div></div>
+  <div class="filter">Tipo <div class="muted">Incendio</div></div>
+  <div class="filter">Regiões <div class="muted">Selecionar...</div></div>
+  <div class="filter">Status <div class="muted">Aberta</div></div>
+      </div>
+
+      <div class="charts">
+        <div class="panel">
+          <h3>Ocorrências</h3>
+          <!-- simple donut placeholder -->
+          <svg width="220" height="160" viewBox="0 0 220 160" class="center-svg">
+            <circle cx="110" cy="80" r="50" fill="#222" />
+            <circle cx="110" cy="80" r="50" fill="none" stroke="#2ecc71" stroke-width="30" stroke-dasharray="78 78 78 78" stroke-dashoffset="0" transform="rotate(-90 110 80)" />
+          </svg>
+          <div class="legend">
+            <div class="item"><span class="dot dot-outros"></span> Outros</div>
+            <div class="item"><span class="dot dot-incendio"></span> Incêndios</div>
+            <div class="item"><span class="dot dot-resgate"></span> Resgate</div>
+            <div class="item"><span class="dot dot-acidentes"></span> Acidentes</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Ocorrências</h3>
+          <div class="chart-placeholder">
+            <div class="chart-dot"></div>
+          </div>
+        </div>
+      </div>
+
+  <div class="mt-12"><button class="btn-alt">Gerar Relatório</button></div>
+    </main>
+  </div>
+    <script>
+      // auto-select menu item based on pathname
+      (function(){
+        const links = document.querySelectorAll('.menu a');
+        const path = location.pathname.split('/').pop();
+        links.forEach(a=>{ a.classList.remove('selected'); if(a.getAttribute('href')===path) a.classList.add('selected') });
+      })();
+    </script>
+</body>
+</html>

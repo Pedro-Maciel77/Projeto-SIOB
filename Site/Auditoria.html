@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Painel Bombeiros — Auditoria & Logs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/theme.css">
+  <style>
+    .app{display:flex}
+    .sidebar{width:220px;padding:20px}
+    .main{flex:1;padding:36px}
+    h1{font-size:28px;margin-bottom:24px;font-weight:700}
+    
+    .filters{display:flex;gap:18px;margin-bottom:18px;flex-wrap:wrap}
+    .filter{background:linear-gradient(180deg,#262425,#1f1d20);padding:16px;border-radius:12px;color:#bfbfbf;min-width:200px;flex:1}
+    .filter label{display:block;font-size:13px;color:#9b9b9b;margin-bottom:8px;font-weight:600}
+    .filter select, .filter input[type="date"]{background:transparent;border:0;color:#cfcfcf;padding:8px;font-size:0.95rem;outline:none;border-radius:8px;width:100%}
+    .filter .date-inputs{display:flex;gap:8px;align-items:center}
+    .filter .date-inputs input{flex:1}
+    .filter .sep{color:#666;font-size:0.85rem}
+    
+    .filter-actions{display:flex;gap:12px;align-items:center}
+    .search-btn{background:linear-gradient(180deg,var(--accent), #b93131);color:#fff;padding:10px 24px;border-radius:10px;border:0;cursor:pointer;font-weight:600;height:46px}
+    .search-btn:hover{opacity:0.9}
+    
+    .table-wrap{background:linear-gradient(180deg,#1f1d1f,#161516);padding:18px;border-radius:12px;margin-top:24px}
+    
+    .status{padding:6px 10px;border-radius:8px;background:#2a2a2a;color:#cfcfcf;display:inline-block}
+    
+    .description-cell{max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo-sm">
+        <img src="img/image.png" alt="logo" />
+        <strong>Painel Bombeiros</strong>
+      </div>
+
+      <nav class="menu">
+        <a href="Ocorrencias.html"><span class="icon"></span> Ocorrências</a>
+        <a href="Relatorios.html"><span class="icon"></span> Relatórios</a>
+        <a href="Usuarios.html"><span class="icon"></span> Usuários</a>
+        <a href="Auditoria.html"><span class="icon"></span> Auditoria</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar"><a href="Perfil.html" class="user-btn"><div class="avatar-sm">C</div><div>Cauã Nunes</div></a></div>
+
+      <h1>Auditoria & Logs</h1>
+
+      <div class="filters">
+        <div class="filter">
+          <label>Usuario</label>
+          <select id="filterUsuario">
+            <option value="">Selecionar...</option>
+          </select>
+        </div>
+        
+        <div class="filter">
+          <label>Evento</label>
+          <select id="filterEvento">
+            <option value="">Selecionar...</option>
+            <option value="Login">Login</option>
+            <option value="Atualização">Atualização</option>
+            <option value="Criação de usuario">Criação de usuario</option>
+            <option value="Remoção de usuario">Remoção de usuario</option>
+          </select>
+        </div>
+        
+        <div class="filter">
+          <label>Periodo</label>
+          <div class="date-inputs">
+            <input type="date" id="periodoStart">
+            <span class="sep">-</span>
+            <input type="date" id="periodoEnd">
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-actions">
+        <button class="search-btn" id="btnSearch">🔍</button>
+        <button class="btn-alt" id="btnClearFilters">Limpar filtros</button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="auditTable">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Usuario</th>
+              <th>Evento</th>
+              <th>Data</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-date="10/09/2025">
+              <td>02</td>
+              <td>Joao</td>
+              <td>Atualização</td>
+              <td>10/09/2025</td>
+              <td class="description-cell">Senha atualizada para u...</td>
+            </tr>
+            <tr data-date="08/06/2025">
+              <td>03</td>
+              <td>Ana</td>
+              <td>Login</td>
+              <td>08/06/2025</td>
+              <td class="description-cell">Login realizado com sucesso</td>
+            </tr>
+            <tr data-date="08/21/2025">
+              <td>04</td>
+              <td>Caio</td>
+              <td>Remoção de usuario</td>
+              <td>08/21/2025</td>
+              <td class="description-cell">Usuário removido do si...</td>
+            </tr>
+            <tr data-date="05/24/2025">
+              <td>05</td>
+              <td>Caua</td>
+              <td>Remoção de usuario</td>
+              <td>05/24/2025</td>
+              <td class="description-cell">Usuário removido do si...</td>
+            </tr>
+            <tr data-date="04/19/2025">
+              <td>06</td>
+              <td>Fernando</td>
+              <td>Remoção de usuario</td>
+              <td>04/19/2025</td>
+              <td class="description-cell">Usuário removido do si...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Highlight active menu item
+    (function(){
+      const links = document.querySelectorAll('.menu a');
+      const path = location.pathname.split('/').pop();
+      links.forEach(a=>{ 
+        a.classList.remove('selected'); 
+        if(a.getAttribute('href')===path) a.classList.add('selected');
+      });
+    })();
+
+    // Load audit logs from localStorage
+    function loadAuditLogs() {
+      const logs = JSON.parse(localStorage.getItem('auditLogs') || '[]');
+      const tbody = document.querySelector('#auditTable tbody');
+      
+      // Load dynamic logs if available
+      if(logs.length > 0) {
+        logs.forEach(log => {
+          const row = document.createElement('tr');
+          row.setAttribute('data-date', log.data);
+          row.innerHTML = `
+            <td>${String(log.id).padStart(2, '0')}</td>
+            <td>${log.usuario}</td>
+            <td>${log.evento}</td>
+            <td>${log.data}</td>
+            <td class="description-cell">${log.descricao}</td>
+          `;
+          tbody.appendChild(row);
+        });
+      }
+      
+      // Populate user filter
+      populateUserFilter();
+    }
+
+    // Populate user filter dropdown with unique users
+    function populateUserFilter() {
+      const filterUsuario = document.getElementById('filterUsuario');
+      const rows = document.querySelectorAll('#auditTable tbody tr');
+      const users = new Set();
+      
+      rows.forEach(row => {
+        const userName = row.children[1].textContent.trim();
+        users.add(userName);
+      });
+      
+      users.forEach(user => {
+        const option = document.createElement('option');
+        option.value = user;
+        option.textContent = user;
+        filterUsuario.appendChild(option);
+      });
+    }
+
+    // Parse date from DD/MM/YYYY format
+    function parseDateDDMMYYYY(str) {
+      if(!str) return null;
+      const parts = str.split('/');
+      if(parts.length !== 3) return null;
+      const d = parseInt(parts[0], 10);
+      const m = parseInt(parts[1], 10) - 1;
+      const y = parseInt(parts[2], 10);
+      return new Date(y, m, d);
+    }
+
+    // Apply filters
+    function applyFilters() {
+      const filterUsuario = document.getElementById('filterUsuario').value.toLowerCase();
+      const filterEvento = document.getElementById('filterEvento').value.toLowerCase();
+      const periodoStart = document.getElementById('periodoStart').value;
+      const periodoEnd = document.getElementById('periodoEnd').value;
+      
+      const startDate = periodoStart ? new Date(periodoStart) : null;
+      const endDate = periodoEnd ? new Date(periodoEnd) : null;
+      
+      const rows = document.querySelectorAll('#auditTable tbody tr');
+      
+      rows.forEach(row => {
+        const usuario = row.children[1].textContent.toLowerCase();
+        const evento = row.children[2].textContent.toLowerCase();
+        const dateText = row.children[3].textContent.trim();
+        const rowDate = parseDateDDMMYYYY(dateText);
+        
+        let show = true;
+        
+        // Filter by user
+        if(filterUsuario && !usuario.includes(filterUsuario)) {
+          show = false;
+        }
+        
+        // Filter by event
+        if(filterEvento && !evento.includes(filterEvento)) {
+          show = false;
+        }
+        
+        // Filter by date range
+        if(startDate && rowDate && rowDate < startDate) {
+          show = false;
+        }
+        if(endDate && rowDate && rowDate > endDate) {
+          show = false;
+        }
+        
+        row.style.display = show ? '' : 'none';
+      });
+    }
+
+    // Clear filters
+    function clearFilters() {
+      document.getElementById('filterUsuario').value = '';
+      document.getElementById('filterEvento').value = '';
+      document.getElementById('periodoStart').value = '';
+      document.getElementById('periodoEnd').value = '';
+      applyFilters();
+    }
+
+    // Event listeners
+    document.getElementById('btnSearch').addEventListener('click', applyFilters);
+    document.getElementById('btnClearFilters').addEventListener('click', clearFilters);
+    
+    // Auto-apply filters on change
+    document.getElementById('filterUsuario').addEventListener('change', applyFilters);
+    document.getElementById('filterEvento').addEventListener('change', applyFilters);
+    document.getElementById('periodoStart').addEventListener('change', applyFilters);
+    document.getElementById('periodoEnd').addEventListener('change', applyFilters);
+
+    // Load logs on page load
+    loadAuditLogs();
+  </script>
+</body>
+</html>

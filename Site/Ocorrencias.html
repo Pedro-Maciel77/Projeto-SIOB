@@ -33,9 +33,9 @@
 
       <nav class="menu">
         <a href="Ocorrencias.html"><span class="icon"></span> Ocorrências</a>
-  <a href="Relatorios.html"><span class="icon"></span> Relatórios</a>
-        <a href="#"><span class="icon"></span> Usuários</a>
-        <a href="#"><span class="icon"></span> Auditoria</a>
+        <a href="Relatorios.html"><span class="icon"></span> Relatórios</a>
+        <a href="Usuarios.html"><span class="icon"></span> Usuários</a>
+        <a href="Auditoria.html"><span class="icon"></span> Auditoria</a>
       </nav>
     </aside>
 
@@ -72,7 +72,7 @@
         <button id="clearFilters" class="btn-alt">Limpar filtros</button>
       </div>
 
-  <div class="search"><input id="searchBox" placeholder="Buscar ocorrência"></div>
+      <div class="search"><input id="searchBox" placeholder="Buscar ocorrência"></div>
 
       <div class="table-wrap">
         <table>
@@ -115,10 +115,10 @@
       const query = searchBox && searchBox.value ? searchBox.value.trim().toLowerCase() : '';
       const startVal = periodoStart && periodoStart.value ? new Date(periodoStart.value) : null;
       const endVal = periodoEnd && periodoEnd.value ? new Date(periodoEnd.value) : null;
-  const tipoSel = document.getElementById('tipo_filter');
-  const tipoVal = tipoSel ? tipoSel.value : '';
-  const statusSel = document.getElementById('status_filter');
-  const statusVal = statusSel ? statusSel.value : '';
+      const tipoSel = document.getElementById('tipo_filter');
+      const tipoVal = tipoSel ? tipoSel.value : '';
+      const statusSel = document.getElementById('status_filter');
+      const statusVal = statusSel ? statusSel.value : '';
       const rows = document.querySelectorAll('.table-wrap tbody tr');
       rows.forEach(row=>{
         const tipoCell = row.children[1]; // TIPO is the 2nd column
@@ -140,25 +140,25 @@
         }
         // type filter
         if(tipoVal){ if(tipoTxt.indexOf(tipoVal)===-1) show = false }
-  // status filter (5th column)
-  const statusCell = row.children[4];
-  const statusTxt = statusCell && statusCell.textContent.trim().toLowerCase();
-  if(statusVal){ if(statusTxt.indexOf(statusVal)===-1) show = false }
-  // date range filter
-  if(startVal && rowDate){ if(rowDate < startVal) show = false }
-  if(endVal && rowDate){ if(rowDate > endVal) show = false }
+        // status filter (5th column)
+        const statusCell = row.children[4];
+        const statusTxt = statusCell && statusCell.textContent.trim().toLowerCase();
+        if(statusVal){ if(statusTxt.indexOf(statusVal)===-1) show = false }
+        // date range filter
+        if(startVal && rowDate){ if(rowDate < startVal) show = false }
+        if(endVal && rowDate){ if(rowDate > endVal) show = false }
         row.style.display = show ? '' : 'none';
       });
     }
 
     if(periodoStart) periodoStart.addEventListener('change', filterTableByDateRange);
     if(periodoEnd) periodoEnd.addEventListener('change', filterTableByDateRange);
-  const tipoFilter = document.getElementById('tipo_filter');
-  if(tipoFilter) tipoFilter.addEventListener('change', filterTableByDateRange);
-  const statusFilter = document.getElementById('status_filter');
-  if(statusFilter) statusFilter.addEventListener('change', filterTableByDateRange);
-  const searchBox = document.getElementById('searchBox');
-  if(searchBox){ searchBox.addEventListener('input', filterTableByDateRange); }
+    const tipoFilter = document.getElementById('tipo_filter');
+    if(tipoFilter) tipoFilter.addEventListener('change', filterTableByDateRange);
+    const statusFilter = document.getElementById('status_filter');
+    if(statusFilter) statusFilter.addEventListener('change', filterTableByDateRange);
+    const searchBox = document.getElementById('searchBox');
+    if(searchBox){ searchBox.addEventListener('input', filterTableByDateRange); }
     const clearBtn = document.getElementById('clearFilters');
     if(clearBtn){
       clearBtn.addEventListener('click',(e)=>{

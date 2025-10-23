@@ -139,7 +139,7 @@
     </main>
   </div>
   <script>
-    // auto-select menu item based on pathname
+
     (function(){
       const links = document.querySelectorAll('.menu a');
       const path = location.pathname.split('/').pop();
@@ -181,20 +181,20 @@
       const startDate = periodoStart ? new Date(periodoStart) : null;
       const endDate = periodoEnd ? new Date(periodoEnd) : null;
 
-      // Filtrar ocorrências
+    
       const filtradas = ocorrencias.filter(occ => {
         let match = true;
 
-        // Filtro de tipo
+       
         if(tipo && occ.tipo.toLowerCase() !== tipo) match = false;
 
-        // Filtro de região
+        
         if(regiao && occ.local !== regiao) match = false;
 
-        // Filtro de status
+        
         if(status && occ.status.toLowerCase() !== status) match = false;
 
-        // Filtro de período
+     
         const occDate = parseDateDDMMYYYY(occ.data);
         if(startDate && occDate && occDate < startDate) match = false;
         if(endDate && occDate && occDate > endDate) match = false;
@@ -202,7 +202,7 @@
         return match;
       });
 
-      // Atualizar cards
+ 
       document.getElementById('totalOcorrencias').textContent = filtradas.length;
       
       const fechadas = filtradas.filter(o => o.status.toLowerCase() === 'fechada').length;
@@ -213,7 +213,7 @@
       document.getElementById('totalAbertos').textContent = abertas;
       document.getElementById('totalAndamento').textContent = andamento;
 
-      // Atualizar contadores por tipo
+      
       const incendios = filtradas.filter(o => o.tipo === 'incendio').length;
       const resgates = filtradas.filter(o => o.tipo === 'resgate').length;
       const acidentes = filtradas.filter(o => o.tipo === 'acidente').length;
@@ -224,7 +224,7 @@
       document.getElementById('countAcidentes').textContent = acidentes;
       document.getElementById('countOutros').textContent = outros;
 
-      // Preencher tabela
+   
       const tbody = document.getElementById('relatorioBody');
       tbody.innerHTML = '';
       
@@ -266,11 +266,11 @@
       document.getElementById('relatorioTable').style.display = 'none';
     }
 
-    // Event listeners
+    
     document.getElementById('btnGerarRelatorio').addEventListener('click', gerarRelatorio);
     document.getElementById('btnLimparFiltros').addEventListener('click', limparFiltros);
 
-    // Carregar dados iniciais ao carregar página
+   
     window.addEventListener('load', () => {
       gerarRelatorio();
     });

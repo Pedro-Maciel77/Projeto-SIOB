@@ -7,11 +7,11 @@
   --accent: #e13b3b;
   --glass: rgba(255,255,255,0.02);
 
-  /* sizes */
+  
   --base-font-size: 16px;
-  --logo-height: 60px;        /* large header logo */
-  --logo-text-size: 38px;    /* adjacent logo text */
-  --small-logo-height: 26px; /* sidebar small logo */
+  --logo-height: 60px;
+  --logo-text-size: 38px;   
+  --small-logo-height: 26px; 
   --menu-icon-size: 20px;
   --avatar-small: 36px;
   --avatar-large: 84px;
@@ -19,7 +19,7 @@
   --btn-height: 42px;
 }
 
-/* Base reset + typography */
+
 *{box-sizing:border-box}
 html,body{height:100%}
 html{font-size:var(--base-font-size)}
@@ -30,36 +30,33 @@ body{
   color: #e6e6e6;
 }
 
-/* Brand / header */
+
 .brand{position:absolute;top:54px;left:50%;transform:translateX(-50%);display:flex;gap:18px;align-items:center;font-weight:700;color:#f2f2f2}
 .brand .logo-text{font-weight:700;font-size:var(--logo-text-size);line-height:1}
 .brand img{display:block;height:var(--logo-height);width:auto;transform:translateY(2px)}
 
-/* small logo used in sidebars */
+
 .logo-sm{display:flex;align-items:center;gap:10px;margin-bottom:18px}
 .logo-sm img{height:var(--small-logo-height)}
 
-/* Sidebar / menu */
+
 .sidebar{width:220px;background:linear-gradient(180deg,var(--sidebar), #111);padding:24px 16px;min-height:100vh}
 .menu{display:flex;flex-direction:column;gap:12px}
 .menu a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;color:#cfcfcf;text-decoration:none;font-size:0.95rem}
 .menu a.selected{background:var(--accent);color:#fff}
 .menu a .icon{width:var(--menu-icon-size);height:var(--menu-icon-size);display:inline-flex;align-items:center;justify-content:center;background:transparent;border-radius:0}
-/* SVG asset used in menu items */
-/* menu-asset removed */
 
-/* Buttons / inputs / cards */
 .btn{height:var(--btn-height);border-radius:12px;border:0;font-weight:600;background:linear-gradient(180deg,var(--accent), #b93131);color:white;cursor:pointer;box-shadow: 0 6px 18px rgba(225,59,59,0.28);align-self:center;padding:0 18px;min-width:120px}
 .input{height:var(--input-height);border-radius:10px;background: linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9));box-shadow: inset 0 6px 12px rgba(20,20,20,0.8);display:flex;align-items:center;padding:0 14px;border:1px solid rgba(255,255,255,0.02)}
 .input input{border:0;background:transparent;color:#cfcfcf;font-size:0.8125rem;outline:none;width:100%}
 
 .card{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));border-radius:12px;padding:18px;box-shadow: 0 6px 30px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03)}
 
-/* make panels and profile card visually consistent with .card */
+
 .panel{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));border-radius:12px;padding:18px;box-shadow: 0 6px 20px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.03)}
 .profile-card{background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));border-radius:12px;padding:26px;box-shadow: 0 6px 30px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.03)}
 
-/* Topbar / user */
+
 .topbar{display:flex;justify-content:flex-end;gap:12px;align-items:center;margin-bottom:10px}
 .user-btn{background:linear-gradient(180deg,#3a3a3a,#2a2a2a);padding:8px 12px;border-radius:18px;color:#fff;display:flex;gap:10px;align-items:center;text-decoration:none}
 .user-btn .avatar{width:var(--avatar-small);height:var(--avatar-small);border-radius:50%;background:#222;display:flex;align-items:center;justify-content:center}
@@ -68,29 +65,29 @@ body{
 
 .avatar{width:var(--avatar-large);height:var(--avatar-large);border-radius:50%;background:#222;display:flex;align-items:center;justify-content:center;font-size:28px}
 
-/* Generic content headings */
+
 h1{font-size:22px;margin:6px 0 18px 0}
 
-/* Tables */
+
 table{width:100%;border-collapse:collapse;color:#dcdcdc}
 th,td{padding:14px;text-align:left}
 th{color:#a9a9a9;font-size:13px;border-bottom:1px solid rgba(255,255,255,0.03)}
 tr{border-bottom:1px solid rgba(255,255,255,0.02)}
 
-/* Make table area scrollable with sticky headers */
+
 .table-wrap{max-height:420px;overflow:auto}
 .table-wrap table{width:100%;border-collapse:collapse}
 .table-wrap thead th{position:sticky;top:0;background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.12));z-index:2}
 .table-wrap tbody tr{transition:opacity .15s}
 
-/* Responsive tweaks */
+
 @media(max-width:480px){
   .card{padding:14px}
   .brand{top:30px}
   .sidebar{display:none}
 }
 
-/* Utility classes for spacing and small variants */
+
 .avatar-sm{width:36px;height:36px;border-radius:50%;background:#222;display:flex;align-items:center;justify-content:center;font-weight:700}
 .muted{color:var(--muted);opacity:.75;font-size:0.9rem}
 .btn-alt{background:#2b2b2b;color:#fff;padding:8px 12px;border-radius:10px;border:0;cursor:pointer}
@@ -100,17 +97,17 @@ tr{border-bottom:1px solid rgba(255,255,255,0.02)}
 .mt-12{margin-top:12px}
 .kpi{display:flex;justify-content:space-between;align-items:center}
 
-/* forgotten password link styling */
+
 .forgot{color:#ffffff;text-decoration:none;font-weight:600;font-size:0.85rem;opacity:0.9}
 
-/* chart placeholder helpers */
+
 .chart-placeholder{height:140px;background:linear-gradient(180deg, rgba(225,59,59,0.12), transparent);border-radius:8px;margin-top:12px;position:relative}
 .chart-dot{position:absolute;left:60%;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;border:3px solid var(--accent)}
 
-/* page layout default (safe) */
+
 .main{flex:1;padding:36px}
 
-/* legend dot color helpers (use classes in HTML) */
+
 .dot-outros{background:#2ecc71}
 .dot-incendio{background:var(--accent)}
 .dot-resgate{background:#f1c40f}

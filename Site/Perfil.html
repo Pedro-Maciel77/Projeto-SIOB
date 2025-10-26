@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,18 +8,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/theme.css">
   <style>
-    .app{display:flex}
-    .sidebar{width:220px;padding:20px}
-    .main{flex:1;padding:36px}
-    .topbar{display:flex;justify-content:flex-end;gap:12px;align-items:center;margin-bottom:10px}
-    .user-btn{padding:8px 12px}
-    .avatar{width:84px;height:84px;border-radius:50%;font-size:28px}
-    .profile-card{padding:26px}
-    .profile-top{display:flex;gap:22px;align-items:center}
-    .panels{display:grid;grid-template-columns:1fr 1fr 200px;gap:16px;margin-top:18px}
-    .panel{padding:16px}
+    .app {
+      display: flex
+    }
+
+    .sidebar {
+      width: 220px;
+      padding: 20px
+    }
+
+    .main {
+      flex: 1;
+      padding: 36px
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px
+    }
+
+    .user-btn {
+      padding: 8px 12px
+    }
+
+    .avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      font-size: 28px
+    }
+
+    .profile-card {
+      padding: 26px
+    }
+
+    .profile-top {
+      display: flex;
+      gap: 22px;
+      align-items: center
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr 200px;
+      gap: 16px;
+      margin-top: 18px
+    }
+
+    .panel {
+      padding: 16px
+    }
   </style>
 </head>
+
 <body>
   <div class="app">
     <aside class="sidebar">
@@ -29,18 +74,21 @@
 
       <nav class="menu">
         <a href="Ocorrencias.html"><span class="icon"></span> Ocorrências</a>
-  <a href="Relatorios.html"><span class="icon"></span> Relatórios</a>
+        <a href="Relatorios.html"><span class="icon"></span> Relatórios</a>
         <a href="Usuarios.html"><span class="icon"></span> Usuários</a>
         <a href="Auditoria.html"><span class="icon"></span> Auditoria</a>
       </nav>
     </aside>
 
     <main class="main">
-  <div class="topbar"><a href="Perfil.html" class="user-btn selected"><div class="avatar-sm">C</div><div>Cauã Nunes</div></a></div>
+      <div class="topbar"><a href="Perfil.html" class="user-btn selected">
+          <div class="avatar-sm">C</div>
+          <div>Cauã Nunes</div>
+        </a></div>
 
-  <h1>Perfil</h1>
+      <h1>Perfil</h1>
 
-  <div class="profile-card card">
+      <div class="profile-card card">
         <div class="profile-top">
           <div class="avatar">C</div>
           <div>
@@ -84,11 +132,12 @@
   </div>
   <script>
     // auto-select menu item based on pathname
-    (function(){
+    (function () {
       const links = document.querySelectorAll('.menu a');
       const path = location.pathname.split('/').pop();
-      links.forEach(a=>{ a.classList.remove('selected'); if(a.getAttribute('href')===path) a.classList.add('selected') });
+      links.forEach(a => { a.classList.remove('selected'); if (a.getAttribute('href') === path) a.classList.add('selected') });
     })();
   </script>
 </body>
+
 </html>

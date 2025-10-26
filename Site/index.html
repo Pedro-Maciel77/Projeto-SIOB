@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIOB - Sistema de Ocorrências dos Bombeiros</title>
-    
+
     <meta http-equiv="refresh" content="0; url=Registro_SIOB.html">
-    
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,13 +20,13 @@
             height: 100vh;
             color: white;
         }
-        
+
         .loading {
             text-align: center;
         }
-        
+
         .spinner {
-            border: 4px solid rgba(255,255,255,0.3);
+            border: 4px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top: 4px solid white;
             width: 40px;
@@ -33,13 +34,19 @@
             animation: spin 1s linear infinite;
             margin: 0 auto 20px;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="loading">
         <div class="spinner"></div>
@@ -47,11 +54,12 @@
         <p>Redirecionando para o sistema</p>
     </div>
 
-    <!-- Script de fallback caso o meta refresh não funcione -->
+
     <script>
-        setTimeout(function() {
+        setTimeout(function () {
             window.location.href = 'Registro_SIOB.html';
-        }, 2000); // Redireciona após 2 segundos se o meta refresh falhar
+        }, 2000);
     </script>
 </body>
+
 </html>

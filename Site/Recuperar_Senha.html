@@ -44,9 +44,9 @@
     document.getElementById('resetForm').addEventListener('submit', function(e){
       e.preventDefault();
       const email = document.getElementById('resetEmail').value.trim();
-      // Simulação: aqui você chamaria sua API para enviar o e-mail
+
       alert('Se existe uma conta com ' + (email || 'esse e-mail') + ', você receberá instruções em breve.');
-      // após envio, redireciona de volta ao login
+
       window.location.href = 'Login_SIOB.html';
     });
   </script>

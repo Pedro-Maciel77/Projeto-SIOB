@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,22 +8,99 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/theme.css">
   <style>
-    .app{display:flex}
-    .sidebar{width:220px;padding:20px}
-    .main{flex:1;padding:36px}
-    h1{font-size:22px;margin-bottom:18px}
-  .filters{display:flex;gap:18px;margin-bottom:18px}
-  .filter{background:linear-gradient(180deg,#262425,#1f1d20);padding:12px;border-radius:12px;color:#bfbfbf;min-width:160px}
-  .filter .date-range{display:flex;align-items:center;gap:8px}
-  .filter input[type="date"]{background:transparent;border:0;color:#cfcfcf;padding:8px 8px;font-size:0.95rem;outline:none;border-radius:8px}
-  .filter .sep{color:var(--muted);font-size:0.9rem}
-  .filter select{background:transparent;border:0;color:#cfcfcf;padding:8px 8px;font-size:0.95rem;outline:none;border-radius:8px}
-    .search{margin:16px 0}
-    .search input{width:100%;padding:14px;border-radius:12px;background:linear-gradient(180deg,#262425,#1f1d20);border:0;color:#cfcfcf}
-    .table-wrap{background:linear-gradient(180deg,#1f1d1f,#161516);padding:18px;border-radius:12px}
-    .status{padding:6px 10px;border-radius:8px;background:#2a2a2a;color:#cfcfcf;display:inline-block}
+    .app {
+      display: flex
+    }
+
+    .sidebar {
+      width: 220px;
+      padding: 20px
+    }
+
+    .main {
+      flex: 1;
+      padding: 36px
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 18px
+    }
+
+    .filters {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 18px
+    }
+
+    .filter {
+      background: linear-gradient(180deg, #262425, #1f1d20);
+      padding: 12px;
+      border-radius: 12px;
+      color: #bfbfbf;
+      min-width: 160px
+    }
+
+    .filter .date-range {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .filter input[type="date"] {
+      background: transparent;
+      border: 0;
+      color: #cfcfcf;
+      padding: 8px 8px;
+      font-size: 0.95rem;
+      outline: none;
+      border-radius: 8px
+    }
+
+    .filter .sep {
+      color: var(--muted);
+      font-size: 0.9rem
+    }
+
+    .filter select {
+      background: transparent;
+      border: 0;
+      color: #cfcfcf;
+      padding: 8px 8px;
+      font-size: 0.95rem;
+      outline: none;
+      border-radius: 8px
+    }
+
+    .search {
+      margin: 16px 0
+    }
+
+    .search input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #262425, #1f1d20);
+      border: 0;
+      color: #cfcfcf
+    }
+
+    .table-wrap {
+      background: linear-gradient(180deg, #1f1d1f, #161516);
+      padding: 18px;
+      border-radius: 12px
+    }
+
+    .status {
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: #2a2a2a;
+      color: #cfcfcf;
+      display: inline-block
+    }
   </style>
 </head>
+
 <body>
   <div class="app">
     <aside class="sidebar">
@@ -40,7 +118,10 @@
     </aside>
 
     <main class="main">
-      <div class="topbar"><a href="Perfil.html" class="user-btn"><div class="avatar-sm">C</div><div>Cauã Nunes</div></a></div>
+      <div class="topbar"><a href="Perfil.html" class="user-btn">
+          <div class="avatar-sm">C</div>
+          <div>Cauã Nunes</div>
+        </a></div>
 
       <div class="filters">
         <div class="filter">Periodo<br>
@@ -58,7 +139,7 @@
             <option value="acidente">Acidente</option>
           </select>
         </div>
-        
+
         <div class="filter">Status<br>
           <select id="status_filter">
             <option value="">Todos</option>
@@ -77,14 +158,50 @@
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th>ID</th><th>TIPO</th><th>DATA</th><th>LOCAL</th><th>STATUS</th></tr>
+            <tr>
+              <th>ID</th>
+              <th>TIPO</th>
+              <th>DATA</th>
+              <th>LOCAL</th>
+              <th>STATUS</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>0</td><td>incendio</td><td>21/10/2025</td><td>Dois Unidos</td><td><span class="status">Aberta</span></td></tr>
-            <tr><td>1</td><td>Resgate</td><td>08/12/2025</td><td>Afogados</td><td><span class="status">Fechada</span></td></tr>
-            <tr><td>2</td><td>Resgate</td><td>12/06/2023</td><td>Alto Bondade</td><td><span class="status">Fechada</span></td></tr>
-            <tr><td>3</td><td>Acidente</td><td>21/10/2025</td><td>Dois Unidos</td><td><span class="status">Aberta</span></td></tr>
-            <tr><td>4</td><td>Acidente</td><td>21/10/2025</td><td>Joao de Barros</td><td><span class="status">Aberta</span></td></tr>
+            <tr>
+              <td>0</td>
+              <td>incendio</td>
+              <td>21/10/2025</td>
+              <td>Dois Unidos</td>
+              <td><span class="status">Aberta</span></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>Resgate</td>
+              <td>08/12/2025</td>
+              <td>Afogados</td>
+              <td><span class="status">Fechada</span></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Resgate</td>
+              <td>12/06/2023</td>
+              <td>Alto Bondade</td>
+              <td><span class="status">Fechada</span></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Acidente</td>
+              <td>21/10/2025</td>
+              <td>Dois Unidos</td>
+              <td><span class="status">Aberta</span></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Acidente</td>
+              <td>21/10/2025</td>
+              <td>Joao de Barros</td>
+              <td><span class="status">Aberta</span></td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -92,25 +209,25 @@
     </main>
   </div>
   <script>
-    (function(){
+    (function () {
       const links = document.querySelectorAll('.menu a');
       const path = location.pathname.split('/').pop();
-      links.forEach(a=>{ a.classList.remove('selected'); if(a.getAttribute('href')===path) a.classList.add('selected') });
+      links.forEach(a => { a.classList.remove('selected'); if (a.getAttribute('href') === path) a.classList.add('selected') });
     })();
-   
+
     const periodoStart = document.getElementById('periodo_start');
     const periodoEnd = document.getElementById('periodo_end');
 
-    function parseDateDDMMYYYY(str){
-    
-      if(!str) return null;
+    function parseDateDDMMYYYY(str) {
+
+      if (!str) return null;
       const parts = str.split('/');
-      if(parts.length!==3) return null;
-      const d = parseInt(parts[0],10), m = parseInt(parts[1],10)-1, y = parseInt(parts[2],10);
-      return new Date(y,m,d);
+      if (parts.length !== 3) return null;
+      const d = parseInt(parts[0], 10), m = parseInt(parts[1], 10) - 1, y = parseInt(parts[2], 10);
+      return new Date(y, m, d);
     }
 
-    function filterTableByDateRange(){
+    function filterTableByDateRange() {
       const searchBox = document.getElementById('searchBox');
       const query = searchBox && searchBox.value ? searchBox.value.trim().toLowerCase() : '';
       const startVal = periodoStart && periodoStart.value ? new Date(periodoStart.value) : null;
@@ -120,15 +237,15 @@
       const statusSel = document.getElementById('status_filter');
       const statusVal = statusSel ? statusSel.value : '';
       const rows = document.querySelectorAll('.table-wrap tbody tr');
-      rows.forEach(row=>{
-        const tipoCell = row.children[1]; // TIPO is the 2nd column
-        const dateCell = row.children[2]; // DATA is the 3rd column
+      rows.forEach(row => {
+        const tipoCell = row.children[1];
+        const dateCell = row.children[2];
         const tipoTxt = tipoCell && tipoCell.textContent.trim().toLowerCase();
         const txt = dateCell && dateCell.textContent.trim();
         const rowDate = parseDateDDMMYYYY(txt);
         let show = true;
-       
-        if(query){
+
+        if (query) {
           const combined = [
             row.children[0] && row.children[0].textContent.trim(),
             row.children[1] && row.children[1].textContent.trim(),
@@ -136,40 +253,41 @@
             row.children[3] && row.children[3].textContent.trim(),
             row.children[4] && row.children[4].textContent.trim()
           ].join(' ').toLowerCase();
-          if(combined.indexOf(query) === -1) show = false;
+          if (combined.indexOf(query) === -1) show = false;
         }
-  
-        if(tipoVal){ if(tipoTxt.indexOf(tipoVal)===-1) show = false }
-       
+
+        if (tipoVal) { if (tipoTxt.indexOf(tipoVal) === -1) show = false }
+
         const statusCell = row.children[4];
         const statusTxt = statusCell && statusCell.textContent.trim().toLowerCase();
-        if(statusVal){ if(statusTxt.indexOf(statusVal)===-1) show = false }
-      
-        if(startVal && rowDate){ if(rowDate < startVal) show = false }
-        if(endVal && rowDate){ if(rowDate > endVal) show = false }
+        if (statusVal) { if (statusTxt.indexOf(statusVal) === -1) show = false }
+
+        if (startVal && rowDate) { if (rowDate < startVal) show = false }
+        if (endVal && rowDate) { if (rowDate > endVal) show = false }
         row.style.display = show ? '' : 'none';
       });
     }
 
-    if(periodoStart) periodoStart.addEventListener('change', filterTableByDateRange);
-    if(periodoEnd) periodoEnd.addEventListener('change', filterTableByDateRange);
+    if (periodoStart) periodoStart.addEventListener('change', filterTableByDateRange);
+    if (periodoEnd) periodoEnd.addEventListener('change', filterTableByDateRange);
     const tipoFilter = document.getElementById('tipo_filter');
-    if(tipoFilter) tipoFilter.addEventListener('change', filterTableByDateRange);
+    if (tipoFilter) tipoFilter.addEventListener('change', filterTableByDateRange);
     const statusFilter = document.getElementById('status_filter');
-    if(statusFilter) statusFilter.addEventListener('change', filterTableByDateRange);
+    if (statusFilter) statusFilter.addEventListener('change', filterTableByDateRange);
     const searchBox = document.getElementById('searchBox');
-    if(searchBox){ searchBox.addEventListener('input', filterTableByDateRange); }
+    if (searchBox) { searchBox.addEventListener('input', filterTableByDateRange); }
     const clearBtn = document.getElementById('clearFilters');
-    if(clearBtn){
-      clearBtn.addEventListener('click',(e)=>{
+    if (clearBtn) {
+      clearBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        if(periodoStart) periodoStart.value = '';
-        if(periodoEnd) periodoEnd.value = '';
-        if(tipoFilter) tipoFilter.value = '';
-        if(statusFilter) statusFilter.value = '';
+        if (periodoStart) periodoStart.value = '';
+        if (periodoEnd) periodoEnd.value = '';
+        if (tipoFilter) tipoFilter.value = '';
+        if (statusFilter) statusFilter.value = '';
         filterTableByDateRange();
       });
     }
   </script>
 </body>
+
 </html>

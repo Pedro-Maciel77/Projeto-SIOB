@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,28 +8,133 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/theme.css">
   <style>
-    .app{display:flex;gap:28px}
-    .main{flex:1;padding:36px}
-    h1{margin:6px 0 26px 0;font-size:22px}
-    .top-cards{display:flex;gap:18px;margin-bottom:18px}
-    .card{padding:18px;border-radius:12px;flex:0 0 140px}
-    .card small{display:block;color:var(--muted);font-size:12px}
-    .card .num{font-weight:700;font-size:18px;margin-top:10px}
-    .filters{display:flex;gap:12px;margin:18px 0 24px;flex-wrap:wrap}
-    .filter{background:var(--panel-2);padding:12px;border-radius:12px;color:#bfbfbf;min-width:160px}
-    .filter label{display:block;font-size:12px;color:#9b9b9b;margin-bottom:6px;font-weight:600}
-    .filter select, .filter input[type="date"]{background:transparent;border:0;color:#cfcfcf;padding:6px;font-size:0.9rem;outline:none;width:100%}
-    .filter .date-range{display:flex;gap:6px;align-items:center}
-    .filter .date-range input{flex:1}
-    .filter .sep{color:#666}
-    .charts{display:flex;gap:18px}
-    .panel{padding:18px;border-radius:12px;flex:1;min-height:240px}
-    .legend{display:flex;gap:12px;align-items:center;margin-top:14px}
-    .legend .item{display:flex;align-items:center;gap:8px}
-    .dot{width:12px;height:12px;border-radius:50%}
-    .table-wrap{background:linear-gradient(180deg,#1f1d1f,#161516);padding:18px;border-radius:12px;margin-top:24px}
+    .app {
+      display: flex;
+      gap: 28px
+    }
+
+    .main {
+      flex: 1;
+      padding: 36px
+    }
+
+    h1 {
+      margin: 6px 0 26px 0;
+      font-size: 22px
+    }
+
+    .top-cards {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 18px
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 12px;
+      flex: 0 0 140px
+    }
+
+    .card small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px
+    }
+
+    .card .num {
+      font-weight: 700;
+      font-size: 18px;
+      margin-top: 10px
+    }
+
+    .filters {
+      display: flex;
+      gap: 12px;
+      margin: 18px 0 24px;
+      flex-wrap: wrap
+    }
+
+    .filter {
+      background: var(--panel-2);
+      padding: 12px;
+      border-radius: 12px;
+      color: #bfbfbf;
+      min-width: 160px
+    }
+
+    .filter label {
+      display: block;
+      font-size: 12px;
+      color: #9b9b9b;
+      margin-bottom: 6px;
+      font-weight: 600
+    }
+
+    .filter select,
+    .filter input[type="date"] {
+      background: transparent;
+      border: 0;
+      color: #cfcfcf;
+      padding: 6px;
+      font-size: 0.9rem;
+      outline: none;
+      width: 100%
+    }
+
+    .filter .date-range {
+      display: flex;
+      gap: 6px;
+      align-items: center
+    }
+
+    .filter .date-range input {
+      flex: 1
+    }
+
+    .filter .sep {
+      color: #666
+    }
+
+    .charts {
+      display: flex;
+      gap: 18px
+    }
+
+    .panel {
+      padding: 18px;
+      border-radius: 12px;
+      flex: 1;
+      min-height: 240px
+    }
+
+    .legend {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 14px
+    }
+
+    .legend .item {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%
+    }
+
+    .table-wrap {
+      background: linear-gradient(180deg, #1f1d1f, #161516);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 24px
+    }
   </style>
 </head>
+
 <body>
   <div class="app">
     <aside class="sidebar">
@@ -46,14 +152,25 @@
     </aside>
 
     <main class="main">
-      <div class="topbar"><a href="Perfil.html" class="user-btn"><div class="avatar-sm">C</div><div>Cauã Nunes</div></a></div>
+      <div class="topbar"><a href="Perfil.html" class="user-btn">
+          <div class="avatar-sm">C</div>
+          <div>Cauã Nunes</div>
+        </a></div>
       <h1>Relatório</h1>
 
       <div class="top-cards">
-        <div class="card"><small>Total Ocorrências</small><div class="num" id="totalOcorrencias">0</div></div>
-        <div class="card"><small>Finalizados</small><div class="num" id="totalFinalizados">0</div></div>
-        <div class="card"><small>Abertos</small><div class="num" id="totalAbertos">0</div></div>
-        <div class="card"><small>Em Andamento</small><div class="num" id="totalAndamento">0</div></div>
+        <div class="card"><small>Total Ocorrências</small>
+          <div class="num" id="totalOcorrencias">0</div>
+        </div>
+        <div class="card"><small>Finalizados</small>
+          <div class="num" id="totalFinalizados">0</div>
+        </div>
+        <div class="card"><small>Abertos</small>
+          <div class="num" id="totalAbertos">0</div>
+        </div>
+        <div class="card"><small>Em Andamento</small>
+          <div class="num" id="totalAndamento">0</div>
+        </div>
       </div>
 
       <div class="filters">
@@ -65,7 +182,7 @@
             <input type="date" id="periodoEnd">
           </div>
         </div>
-        
+
         <div class="filter">
           <label>Tipo</label>
           <select id="tipoFilter">
@@ -75,7 +192,7 @@
             <option value="acidente">Acidente</option>
           </select>
         </div>
-        
+
         <div class="filter">
           <label>Regiões</label>
           <select id="regiaoFilter">
@@ -86,7 +203,7 @@
             <option value="Joao de Barros">Joao de Barros</option>
           </select>
         </div>
-        
+
         <div class="filter">
           <label>Status</label>
           <select id="statusFilter">
@@ -107,7 +224,13 @@
         <h3 style="margin-bottom:16px">Resultados do Relatório</h3>
         <table>
           <thead>
-            <tr><th>ID</th><th>TIPO</th><th>DATA</th><th>LOCAL</th><th>STATUS</th></tr>
+            <tr>
+              <th>ID</th>
+              <th>TIPO</th>
+              <th>DATA</th>
+              <th>LOCAL</th>
+              <th>STATUS</th>
+            </tr>
           </thead>
           <tbody id="relatorioBody">
           </tbody>
@@ -119,7 +242,8 @@
           <h3>Ocorrências por Tipo</h3>
           <svg width="220" height="160" viewBox="0 0 220 160" class="center-svg">
             <circle cx="110" cy="80" r="50" fill="#222" />
-            <circle cx="110" cy="80" r="50" fill="none" stroke="#2ecc71" stroke-width="30" stroke-dasharray="78 78 78 78" stroke-dashoffset="0" transform="rotate(-90 110 80)" />
+            <circle cx="110" cy="80" r="50" fill="none" stroke="#2ecc71" stroke-width="30"
+              stroke-dasharray="78 78 78 78" stroke-dashoffset="0" transform="rotate(-90 110 80)" />
           </svg>
           <div class="legend">
             <div class="item"><span class="dot dot-outros"></span> Outros <span id="countOutros">0</span></div>
@@ -140,31 +264,31 @@
   </div>
   <script>
 
-    (function(){
+    (function () {
       const links = document.querySelectorAll('.menu a');
       const path = location.pathname.split('/').pop();
-      links.forEach(a=>{ 
-        a.classList.remove('selected'); 
-        if(a.getAttribute('href')===path) a.classList.add('selected');
+      links.forEach(a => {
+        a.classList.remove('selected');
+        if (a.getAttribute('href') === path) a.classList.add('selected');
       });
     })();
 
-    // Dados de exemplo de ocorrências
+
     const ocorrencias = [
-      {id: 0, tipo: 'incendio', data: '21/10/2025', local: 'Dois Unidos', status: 'Aberta'},
-      {id: 1, tipo: 'resgate', data: '08/12/2025', local: 'Afogados', status: 'Fechada'},
-      {id: 2, tipo: 'resgate', data: '12/06/2023', local: 'Alto Bondade', status: 'Fechada'},
-      {id: 3, tipo: 'acidente', data: '21/10/2025', local: 'Dois Unidos', status: 'Aberta'},
-      {id: 4, tipo: 'acidente', data: '21/10/2025', local: 'Joao de Barros', status: 'Aberta'},
-      {id: 5, tipo: 'incendio', data: '15/09/2025', local: 'Afogados', status: 'Em Andamento'},
-      {id: 6, tipo: 'resgate', data: '03/11/2025', local: 'Alto Bondade', status: 'Em Andamento'},
-      {id: 7, tipo: 'incendio', data: '28/08/2025', local: 'Dois Unidos', status: 'Fechada'}
+      { id: 0, tipo: 'incendio', data: '21/10/2025', local: 'Dois Unidos', status: 'Aberta' },
+      { id: 1, tipo: 'resgate', data: '08/12/2025', local: 'Afogados', status: 'Fechada' },
+      { id: 2, tipo: 'resgate', data: '12/06/2023', local: 'Alto Bondade', status: 'Fechada' },
+      { id: 3, tipo: 'acidente', data: '21/10/2025', local: 'Dois Unidos', status: 'Aberta' },
+      { id: 4, tipo: 'acidente', data: '21/10/2025', local: 'Joao de Barros', status: 'Aberta' },
+      { id: 5, tipo: 'incendio', data: '15/09/2025', local: 'Afogados', status: 'Em Andamento' },
+      { id: 6, tipo: 'resgate', data: '03/11/2025', local: 'Alto Bondade', status: 'Em Andamento' },
+      { id: 7, tipo: 'incendio', data: '28/08/2025', local: 'Dois Unidos', status: 'Fechada' }
     ];
 
     function parseDateDDMMYYYY(str) {
-      if(!str) return null;
+      if (!str) return null;
       const parts = str.split('/');
-      if(parts.length !== 3) return null;
+      if (parts.length !== 3) return null;
       const d = parseInt(parts[0], 10);
       const m = parseInt(parts[1], 10) - 1;
       const y = parseInt(parts[2], 10);
@@ -181,39 +305,39 @@
       const startDate = periodoStart ? new Date(periodoStart) : null;
       const endDate = periodoEnd ? new Date(periodoEnd) : null;
 
-    
+
       const filtradas = ocorrencias.filter(occ => {
         let match = true;
 
-       
-        if(tipo && occ.tipo.toLowerCase() !== tipo) match = false;
 
-        
-        if(regiao && occ.local !== regiao) match = false;
+        if (tipo && occ.tipo.toLowerCase() !== tipo) match = false;
 
-        
-        if(status && occ.status.toLowerCase() !== status) match = false;
 
-     
+        if (regiao && occ.local !== regiao) match = false;
+
+
+        if (status && occ.status.toLowerCase() !== status) match = false;
+
+
         const occDate = parseDateDDMMYYYY(occ.data);
-        if(startDate && occDate && occDate < startDate) match = false;
-        if(endDate && occDate && occDate > endDate) match = false;
+        if (startDate && occDate && occDate < startDate) match = false;
+        if (endDate && occDate && occDate > endDate) match = false;
 
         return match;
       });
 
- 
+
       document.getElementById('totalOcorrencias').textContent = filtradas.length;
-      
+
       const fechadas = filtradas.filter(o => o.status.toLowerCase() === 'fechada').length;
       const abertas = filtradas.filter(o => o.status.toLowerCase() === 'aberta').length;
       const andamento = filtradas.filter(o => o.status.toLowerCase() === 'em andamento').length;
-      
+
       document.getElementById('totalFinalizados').textContent = fechadas;
       document.getElementById('totalAbertos').textContent = abertas;
       document.getElementById('totalAndamento').textContent = andamento;
 
-      
+
       const incendios = filtradas.filter(o => o.tipo === 'incendio').length;
       const resgates = filtradas.filter(o => o.tipo === 'resgate').length;
       const acidentes = filtradas.filter(o => o.tipo === 'acidente').length;
@@ -224,11 +348,11 @@
       document.getElementById('countAcidentes').textContent = acidentes;
       document.getElementById('countOutros').textContent = outros;
 
-   
+
       const tbody = document.getElementById('relatorioBody');
       tbody.innerHTML = '';
-      
-      if(filtradas.length > 0) {
+
+      if (filtradas.length > 0) {
         filtradas.forEach(occ => {
           const row = document.createElement('tr');
           row.innerHTML = `
@@ -253,7 +377,7 @@
       document.getElementById('tipoFilter').value = '';
       document.getElementById('regiaoFilter').value = '';
       document.getElementById('statusFilter').value = '';
-      
+
       document.getElementById('totalOcorrencias').textContent = '0';
       document.getElementById('totalFinalizados').textContent = '0';
       document.getElementById('totalAbertos').textContent = '0';
@@ -262,18 +386,19 @@
       document.getElementById('countResgates').textContent = '0';
       document.getElementById('countAcidentes').textContent = '0';
       document.getElementById('countOutros').textContent = '0';
-      
+
       document.getElementById('relatorioTable').style.display = 'none';
     }
 
-    
+
     document.getElementById('btnGerarRelatorio').addEventListener('click', gerarRelatorio);
     document.getElementById('btnLimparFiltros').addEventListener('click', limparFiltros);
 
-   
+
     window.addEventListener('load', () => {
       gerarRelatorio();
     });
   </script>
 </body>
+
 </html>

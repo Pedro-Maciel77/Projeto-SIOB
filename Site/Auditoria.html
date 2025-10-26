@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,30 +8,122 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/theme.css">
   <style>
-    .app{display:flex}
-    .sidebar{width:220px;padding:20px}
-    .main{flex:1;padding:36px}
-    h1{font-size:28px;margin-bottom:24px;font-weight:700}
-    
-    .filters{display:flex;gap:18px;margin-bottom:18px;flex-wrap:wrap}
-    .filter{background:linear-gradient(180deg,#262425,#1f1d20);padding:16px;border-radius:12px;color:#bfbfbf;min-width:200px;flex:1}
-    .filter label{display:block;font-size:13px;color:#9b9b9b;margin-bottom:8px;font-weight:600}
-    .filter select, .filter input[type="date"]{background:transparent;border:0;color:#cfcfcf;padding:8px;font-size:0.95rem;outline:none;border-radius:8px;width:100%}
-    .filter .date-inputs{display:flex;gap:8px;align-items:center}
-    .filter .date-inputs input{flex:1}
-    .filter .sep{color:#666;font-size:0.85rem}
-    
-    .filter-actions{display:flex;gap:12px;align-items:center}
-    .search-btn{background:linear-gradient(180deg,var(--accent), #b93131);color:#fff;padding:10px 24px;border-radius:10px;border:0;cursor:pointer;font-weight:600;height:46px}
-    .search-btn:hover{opacity:0.9}
-    
-    .table-wrap{background:linear-gradient(180deg,#1f1d1f,#161516);padding:18px;border-radius:12px;margin-top:24px}
-    
-    .status{padding:6px 10px;border-radius:8px;background:#2a2a2a;color:#cfcfcf;display:inline-block}
-    
-    .description-cell{max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .app {
+      display: flex
+    }
+
+    .sidebar {
+      width: 220px;
+      padding: 20px
+    }
+
+    .main {
+      flex: 1;
+      padding: 36px
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 24px;
+      font-weight: 700
+    }
+
+    .filters {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap
+    }
+
+    .filter {
+      background: linear-gradient(180deg, #262425, #1f1d20);
+      padding: 16px;
+      border-radius: 12px;
+      color: #bfbfbf;
+      min-width: 200px;
+      flex: 1
+    }
+
+    .filter label {
+      display: block;
+      font-size: 13px;
+      color: #9b9b9b;
+      margin-bottom: 8px;
+      font-weight: 600
+    }
+
+    .filter select,
+    .filter input[type="date"] {
+      background: transparent;
+      border: 0;
+      color: #cfcfcf;
+      padding: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      border-radius: 8px;
+      width: 100%
+    }
+
+    .filter .date-inputs {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .filter .date-inputs input {
+      flex: 1
+    }
+
+    .filter .sep {
+      color: #666;
+      font-size: 0.85rem
+    }
+
+    .filter-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .search-btn {
+      background: linear-gradient(180deg, var(--accent), #b93131);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 10px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 600;
+      height: 46px
+    }
+
+    .search-btn:hover {
+      opacity: 0.9
+    }
+
+    .table-wrap {
+      background: linear-gradient(180deg, #1f1d1f, #161516);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 24px
+    }
+
+    .status {
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: #2a2a2a;
+      color: #cfcfcf;
+      display: inline-block
+    }
+
+    .description-cell {
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
+    }
   </style>
 </head>
+
 <body>
   <div class="app">
     <aside class="sidebar">
@@ -48,7 +141,10 @@
     </aside>
 
     <main class="main">
-      <div class="topbar"><a href="Perfil.html" class="user-btn"><div class="avatar-sm">C</div><div>Cauã Nunes</div></a></div>
+      <div class="topbar"><a href="Perfil.html" class="user-btn">
+          <div class="avatar-sm">C</div>
+          <div>Cauã Nunes</div>
+        </a></div>
 
       <h1>Auditoria & Logs</h1>
 
@@ -59,7 +155,7 @@
             <option value="">Selecionar...</option>
           </select>
         </div>
-        
+
         <div class="filter">
           <label>Evento</label>
           <select id="filterEvento">
@@ -70,7 +166,7 @@
             <option value="Remoção de usuario">Remoção de usuario</option>
           </select>
         </div>
-        
+
         <div class="filter">
           <label>Periodo</label>
           <div class="date-inputs">
@@ -140,23 +236,23 @@
   </div>
 
   <script>
-    
-    (function(){
+
+    (function () {
       const links = document.querySelectorAll('.menu a');
       const path = location.pathname.split('/').pop();
-      links.forEach(a=>{ 
-        a.classList.remove('selected'); 
-        if(a.getAttribute('href')===path) a.classList.add('selected');
+      links.forEach(a => {
+        a.classList.remove('selected');
+        if (a.getAttribute('href') === path) a.classList.add('selected');
       });
     })();
 
-    
+
     function loadAuditLogs() {
       const logs = JSON.parse(localStorage.getItem('auditLogs') || '[]');
       const tbody = document.querySelector('#auditTable tbody');
-      
-      
-      if(logs.length > 0) {
+
+
+      if (logs.length > 0) {
         logs.forEach(log => {
           const row = document.createElement('tr');
           row.setAttribute('data-date', log.data);
@@ -170,22 +266,22 @@
           tbody.appendChild(row);
         });
       }
-      
-      // Populate user filter
+
+
       populateUserFilter();
     }
 
-    
+
     function populateUserFilter() {
       const filterUsuario = document.getElementById('filterUsuario');
       const rows = document.querySelectorAll('#auditTable tbody tr');
       const users = new Set();
-      
+
       rows.forEach(row => {
         const userName = row.children[1].textContent.trim();
         users.add(userName);
       });
-      
+
       users.forEach(user => {
         const option = document.createElement('option');
         option.value = user;
@@ -194,11 +290,11 @@
       });
     }
 
-    
+
     function parseDateDDMMYYYY(str) {
-      if(!str) return null;
+      if (!str) return null;
       const parts = str.split('/');
-      if(parts.length !== 3) return null;
+      if (parts.length !== 3) return null;
       const d = parseInt(parts[0], 10);
       const m = parseInt(parts[1], 10) - 1;
       const y = parseInt(parts[2], 10);
@@ -210,38 +306,38 @@
       const filterEvento = document.getElementById('filterEvento').value.toLowerCase();
       const periodoStart = document.getElementById('periodoStart').value;
       const periodoEnd = document.getElementById('periodoEnd').value;
-      
+
       const startDate = periodoStart ? new Date(periodoStart) : null;
       const endDate = periodoEnd ? new Date(periodoEnd) : null;
-      
+
       const rows = document.querySelectorAll('#auditTable tbody tr');
-      
+
       rows.forEach(row => {
         const usuario = row.children[1].textContent.toLowerCase();
         const evento = row.children[2].textContent.toLowerCase();
         const dateText = row.children[3].textContent.trim();
         const rowDate = parseDateDDMMYYYY(dateText);
-        
+
         let show = true;
-        
-        // Filter by user
-        if(filterUsuario && !usuario.includes(filterUsuario)) {
+
+
+        if (filterUsuario && !usuario.includes(filterUsuario)) {
           show = false;
         }
-        
-        // Filter by event
-        if(filterEvento && !evento.includes(filterEvento)) {
+
+
+        if (filterEvento && !evento.includes(filterEvento)) {
           show = false;
         }
-        
-        // Filter by date range
-        if(startDate && rowDate && rowDate < startDate) {
+
+
+        if (startDate && rowDate && rowDate < startDate) {
           show = false;
         }
-        if(endDate && rowDate && rowDate > endDate) {
+        if (endDate && rowDate && rowDate > endDate) {
           show = false;
         }
-        
+
         row.style.display = show ? '' : 'none';
       });
     }
@@ -256,15 +352,16 @@
 
     document.getElementById('btnSearch').addEventListener('click', applyFilters);
     document.getElementById('btnClearFilters').addEventListener('click', clearFilters);
-    
+
 
     document.getElementById('filterUsuario').addEventListener('change', applyFilters);
     document.getElementById('filterEvento').addEventListener('change', applyFilters);
     document.getElementById('periodoStart').addEventListener('change', applyFilters);
     document.getElementById('periodoEnd').addEventListener('change', applyFilters);
 
-  
+
     loadAuditLogs();
   </script>
 </body>
+
 </html>

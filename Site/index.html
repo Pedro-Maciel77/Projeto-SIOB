@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIOB - Sistema de Ocorrências dos Bombeiros</title>
     
+    <!-- Redirecionamento automático para a página de registro -->
     <meta http-equiv="refresh" content="0; url=Registro_SIOB.html">
     
     <style>
@@ -47,11 +48,11 @@
         <p>Redirecionando para o sistema</p>
     </div>
 
-
+    <!-- Script de fallback caso o meta refresh não funcione -->
     <script>
         setTimeout(function() {
             window.location.href = 'Registro_SIOB.html';
-        }, 2000);
+        }, 2000); // Redireciona após 2 segundos se o meta refresh falhar
     </script>
 </body>
 </html>

@@ -140,7 +140,7 @@
   </div>
 
   <script>
-    // Highlight active menu item
+    
     (function(){
       const links = document.querySelectorAll('.menu a');
       const path = location.pathname.split('/').pop();
@@ -150,12 +150,12 @@
       });
     })();
 
-    // Load audit logs from localStorage
+    
     function loadAuditLogs() {
       const logs = JSON.parse(localStorage.getItem('auditLogs') || '[]');
       const tbody = document.querySelector('#auditTable tbody');
       
-      // Load dynamic logs if available
+      
       if(logs.length > 0) {
         logs.forEach(log => {
           const row = document.createElement('tr');
@@ -175,7 +175,7 @@
       populateUserFilter();
     }
 
-    // Populate user filter dropdown with unique users
+    
     function populateUserFilter() {
       const filterUsuario = document.getElementById('filterUsuario');
       const rows = document.querySelectorAll('#auditTable tbody tr');
@@ -194,7 +194,7 @@
       });
     }
 
-    // Parse date from DD/MM/YYYY format
+    
     function parseDateDDMMYYYY(str) {
       if(!str) return null;
       const parts = str.split('/');
@@ -205,7 +205,6 @@
       return new Date(y, m, d);
     }
 
-    // Apply filters
     function applyFilters() {
       const filterUsuario = document.getElementById('filterUsuario').value.toLowerCase();
       const filterEvento = document.getElementById('filterEvento').value.toLowerCase();
@@ -247,7 +246,6 @@
       });
     }
 
-    // Clear filters
     function clearFilters() {
       document.getElementById('filterUsuario').value = '';
       document.getElementById('filterEvento').value = '';
@@ -256,17 +254,16 @@
       applyFilters();
     }
 
-    // Event listeners
     document.getElementById('btnSearch').addEventListener('click', applyFilters);
     document.getElementById('btnClearFilters').addEventListener('click', clearFilters);
     
-    // Auto-apply filters on change
+
     document.getElementById('filterUsuario').addEventListener('change', applyFilters);
     document.getElementById('filterEvento').addEventListener('change', applyFilters);
     document.getElementById('periodoStart').addEventListener('change', applyFilters);
     document.getElementById('periodoEnd').addEventListener('change', applyFilters);
 
-    // Load logs on page load
+  
     loadAuditLogs();
   </script>
 </body>

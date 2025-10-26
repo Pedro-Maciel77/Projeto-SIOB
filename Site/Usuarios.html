@@ -21,7 +21,7 @@
     .action-btn{background:transparent;border:0;color:#cfcfcf;cursor:pointer;font-size:20px;padding:4px 8px}
     .action-btn:hover{color:#fff}
     
-    /* Modal styles */
+    
     .modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center}
     .modal.active{display:flex}
     .modal-content{background:linear-gradient(180deg,#262425,#1f1d20);padding:32px;border-radius:16px;width:90%;max-width:500px;box-shadow:0 12px 48px rgba(0,0,0,0.9)}
@@ -183,7 +183,7 @@
   </div>
 
   <script>
-    // Highlight active menu item
+   
     (function(){
       const links = document.querySelectorAll('.menu a');
       const path = location.pathname.split('/').pop();
@@ -193,7 +193,7 @@
       });
     })();
 
-    // User management
+    
     const modal = document.getElementById('userModal');
     const modalTitle = document.getElementById('modalTitle');
     const userForm = document.getElementById('userForm');
@@ -205,9 +205,9 @@
     const usersTable = document.getElementById('usersTable');
     
     let editingUserId = null;
-    let nextId = 6; // next available ID
+    let nextId = 6; 
 
-    // Open modal for creating user
+   
     btnCreateUser.addEventListener('click', () => {
       editingUserId = null;
       modalTitle.textContent = 'Criar Usuário';
@@ -216,16 +216,16 @@
       modal.classList.add('active');
     });
 
-    // Close modal
+   
     closeModal.addEventListener('click', () => modal.classList.remove('active'));
     cancelBtn.addEventListener('click', () => modal.classList.remove('active'));
     
-    // Close modal on outside click
+    
     modal.addEventListener('click', (e) => {
       if(e.target === modal) modal.classList.remove('active');
     });
 
-    // Edit user
+    
     document.addEventListener('click', (e) => {
       if(e.target.classList.contains('edit-btn')) {
         const userId = e.target.getAttribute('data-id');
@@ -244,7 +244,7 @@
       }
     });
 
-    // Save user (create or update)
+    
     userForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
@@ -258,7 +258,7 @@
       }
       
       if(editingUserId !== null) {
-        // Update existing user
+        
         const row = document.querySelector(`tr[data-id="${editingUserId}"]`);
         if(row) {
           row.children[1].textContent = name;
@@ -267,7 +267,7 @@
           logAudit(name, 'Atualização', 'Usuário atualizado no sistema');
         }
       } else {
-        // Create new user
+       
         const tbody = usersTable.querySelector('tbody');
         const newRow = document.createElement('tr');
         newRow.setAttribute('data-id', nextId);
@@ -289,7 +289,7 @@
       userForm.reset();
     });
 
-    // Delete user
+    
     deleteBtn.addEventListener('click', () => {
       if(confirm('Tem certeza que deseja excluir este usuário?')) {
         const row = document.querySelector(`tr[data-id="${editingUserId}"]`);
@@ -303,7 +303,7 @@
       }
     });
 
-    // Search functionality
+   
     searchUser.addEventListener('input', () => {
       const query = searchUser.value.trim().toLowerCase();
       const rows = usersTable.querySelectorAll('tbody tr');
@@ -320,7 +320,7 @@
       });
     });
 
-    // Audit log function (stores in localStorage for Auditoria page)
+    
     function logAudit(userName, evento, descricao) {
       const logs = JSON.parse(localStorage.getItem('auditLogs') || '[]');
       const newLog = {

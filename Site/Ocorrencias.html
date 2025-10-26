@@ -97,12 +97,12 @@
       const path = location.pathname.split('/').pop();
       links.forEach(a=>{ a.classList.remove('selected'); if(a.getAttribute('href')===path) a.classList.add('selected') });
     })();
-    // hook for periodo range filter
+   
     const periodoStart = document.getElementById('periodo_start');
     const periodoEnd = document.getElementById('periodo_end');
 
     function parseDateDDMMYYYY(str){
-      // expects 'DD/MM/YYYY' or returns null
+    
       if(!str) return null;
       const parts = str.split('/');
       if(parts.length!==3) return null;
@@ -127,7 +127,7 @@
         const txt = dateCell && dateCell.textContent.trim();
         const rowDate = parseDateDDMMYYYY(txt);
         let show = true;
-        // search filter (across visible columns)
+       
         if(query){
           const combined = [
             row.children[0] && row.children[0].textContent.trim(),
@@ -138,13 +138,13 @@
           ].join(' ').toLowerCase();
           if(combined.indexOf(query) === -1) show = false;
         }
-        // type filter
+  
         if(tipoVal){ if(tipoTxt.indexOf(tipoVal)===-1) show = false }
-        // status filter (5th column)
+       
         const statusCell = row.children[4];
         const statusTxt = statusCell && statusCell.textContent.trim().toLowerCase();
         if(statusVal){ if(statusTxt.indexOf(statusVal)===-1) show = false }
-        // date range filter
+      
         if(startVal && rowDate){ if(rowDate < startVal) show = false }
         if(endVal && rowDate){ if(rowDate > endVal) show = false }
         row.style.display = show ? '' : 'none';
